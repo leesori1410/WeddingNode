@@ -56,7 +56,7 @@ function Modal({setMore, getGuestbook}:ModalProps){
       if (selectedFile) formData.append('file', selectedFile)
       formData.append('name', name)
       formData.append('message', message)
-      await axios.post('http://localhost:3000/api/upload', formData)
+      await axios.post('http://localhost:3000/api/guestbook/upload', formData)
     } catch (error) {
       console.log(error)
     }
@@ -120,7 +120,7 @@ function App() {
 
   const getGuestbook = async() => {
     try {
-      const res = await axios.get('http://localhost:3000/api/guestbook')
+      const res = await axios.get('http://localhost:3000/api/guestbook/all')
       const data = res.data.data
       setGuest(data)
     } catch (error) {
@@ -208,7 +208,7 @@ function App() {
           className='weddingImg'
         />
         <img 
-          src='http://localhost:3000/api/qr'
+          src='http://localhost:3000/api/qr/weddingHall'
           alt='QR'
         />
         <p className='subTitle'>G U E S T B O O K</p>
