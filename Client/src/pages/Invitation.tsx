@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Wave from 'react-wavify'
 import axios from 'axios'
 import type { GuestBookType } from '../types/Props'
-import Modal from './Modal'
+import Modal from '../components/Modal'
 import GuestBook from '../components/GuestBook'
 import { useNavigate } from 'react-router-dom'
 
