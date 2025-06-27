@@ -117,7 +117,7 @@ export default function Invitation() {
         <div className='guestbookContainer'>
           {guest.length > 0 ? (
             guest.map((g, i) => (
-              <GuestBook key={i} image={g.image} name={g.name} message={g.message} />
+              <GuestBook key={i} id={g.id} image={g.image} name={g.name} message={g.message} getGuestbook={getGuestbook}/>
             ))
           ) : (
             <p>등록된 방명록이 없습니다.</p>

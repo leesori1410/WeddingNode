@@ -46,4 +46,20 @@ guestbookRouter.get('/all', async(req, res) => {
   }
 })
 
+guestbookRouter.delete('/delete/:id', async(req, res) => {
+  try {
+    const guestbookId = req.params.id
+    const conn = await pool.getConnection()
+    const [result] = await conn.query('DELETE FROM guestbooks WHERE id = (?)', [guestbookId])
+    conn.release()
+    if (result.affectedRows === 0) {
+      return res.status(404).send('해당 ID의 방명록이 없습니다.');
+    }
+    res.send({ message: '성공' })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('서버 오류')
+  }
+})
+
 module.exports = guestbookRouter

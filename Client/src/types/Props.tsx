@@ -4,6 +4,7 @@ export interface ModalProps {
 }
 
 export interface GuestBookType {
+  id: number
   image: string
   name: string
   message: string
